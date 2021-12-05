@@ -3,9 +3,10 @@ class BluetoothDevice
   
   INFO_REGEX = /\s+Icon: input-gaming/
 
-  def initialize(mac = nil, name = nil)
+  def initialize(mac = nil, name = nil, paired = false)
     @mac = mac
     @name = name
+    @paired = paired
   end
 
   def controller?
@@ -24,7 +25,8 @@ class BluetoothDevice
   end
 
   def pair
-    `bluetoothctl pair #{mac}`
+    `bluetoothctl remove #{mac}` if @paired
+    puts `bluetoothctl pair #{mac}`
     `bluetoothctl trust #{mac}`
   end
 
