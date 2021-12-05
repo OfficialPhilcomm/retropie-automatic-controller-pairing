@@ -44,7 +44,7 @@ function enable_automatic-gamepad-pairing() {
 }
 
 function disable_automatic-gamepad-pairing() {
-  sudo service disable retropie_music
+  sudo service disable retropie_automatic_gamepad_pairing
   printMsgs "dialog" "Automatic gamepad pairing disabled. It will no longer start automatically on boot"
 }
 
