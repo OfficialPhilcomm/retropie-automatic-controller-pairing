@@ -1,0 +1,11 @@
+[Unit]
+Description=RetroPie Automatic Gamepad Pairing
+
+[Service]
+User=pi
+WorkingDirectory=/opt/retropie/supplementary/automatic-gamepad-pairing
+ExecStart=/usr/bin/ruby /opt/retropie/supplementary/automatic-gamepad-pairing/pairing.rb
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
